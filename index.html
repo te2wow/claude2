@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>グリッド型コード楽器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>グリッド型コード楽器</h1>
+            <p>押すだけで自然なコード進行になる直感的な楽器アプリ</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>ルート音</label>
+                <select id="rootNote">
+                    <option value="C">C</option>
+                    <option value="C#">C#</option>
+                    <option value="D">D</option>
+                    <option value="D#">D#</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="F#">F#</option>
+                    <option value="G">G</option>
+                    <option value="G#">G#</option>
+                    <option value="A">A</option>
+                    <option value="A#">A#</option>
+                    <option value="B">B</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>スケール</label>
+                <select id="scale">
+                    <option value="major">Major</option>
+                    <option value="minor">Minor</option>
+                    <option value="dorian">Dorian</option>
+                    <option value="phrygian">Phrygian</option>
+                    <option value="lydian">Lydian</option>
+                    <option value="mixolydian">Mixolydian</option>
+                    <option value="aeolian">Aeolian</option>
+                    <option value="locrian">Locrian</option>
+                </select>
+            </div>
+
+            <div class="color-selector">
+                <label>音色</label>
+                <button class="color-btn active" data-color="piano">ピアノ</button>
+                <button class="color-btn" data-color="synth">シンセ</button>
+                <button class="color-btn" data-color="organ">オルガン</button>
+            </div>
+
+            <div class="volume-control">
+                <label>音量: <span id="volumeValue">-10dB</span></label>
+                <input type="range" id="volume" min="-30" max="0" value="-10">
+            </div>
+        </div>
+
+        <div class="playback-controls">
+            <button id="recordBtn" class="control-btn record">録音</button>
+            <button id="playBtn" class="control-btn play">再生</button>
+            <button id="loopBtn" class="control-btn loop">ループ</button>
+            <button id="saveBtn" class="control-btn save">保存</button>
+            <button id="readBtn" class="control-btn read">読込</button>
+        </div>
+
+        <div class="mode-display">
+            <span id="currentKey">キー: C</span>
+            <span id="currentScale">スケール: Major</span>
+        </div>
+
+        <div class="chord-hint">
+            画面をタップして音声を有効化してください
+            <p class="sub-hint">ブラウザの仕様により、ユーザー操作が必要です</p>
+        </div>
+
+        <div class="chord-grid" id="chordGrid">
+            <!-- コードボタンは JavaScript で動的に生成 -->
+        </div>
+
+        <div class="current-chord" id="currentChord"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
